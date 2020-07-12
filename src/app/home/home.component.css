@@ -1,0 +1,92 @@
+.body{
+    background-color: #f8f8fa;
+}
+.head {
+    background-color: rgb(110, 121, 187);
+   background-size: cover;
+    min-height: 100px;
+    color: white;
+    font-size: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.company {
+    background-color: white;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+}
+
+.comp-wrapper {
+    display: flex;
+    font-family: sans-serif;
+}
+
+.comp-wrapper .image {
+    margin-right: 1rem;
+}
+
+.comp-wrapper .image img {
+    border-radius: 4px;
+}
+
+.comp-wrapper .comp-name {
+    font-size: 22px;
+    color: #cb202d;
+}
+.comp-wrapper .comp-name h2 {
+    margin-bottom: 3px;
+}
+
+.comp-wrapper .comp-industry {
+    color: #89959B;
+    text-transform: uppercase;
+}
+
+.comp-wrapper .comp-address {
+    color: #89959B;
+    font-size: 12px;
+}
+
+.comp-extra {
+    display: flex;
+    margin-top: 1rem;
+    border-top: 1px solid #e7e7e7;
+    padding: 1rem;
+}
+
+.comp-extra .type {
+    text-transform: uppercase;
+     color: #89959B;
+     flex: none;
+     margin-right: 2rem;
+}
+
+.company .rating {
+    color: white;
+    background-color: #5BA829;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+}
+.fa {
+    font-size: 18px;
+    margin-right: 6px;
+}
+.more {
+    border: 1px solid gray;
+    margin: 0;
+    color: mediumblue;
+    cursor: pointer;
+    border-radius: 4px;
+}

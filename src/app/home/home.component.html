@@ -1,0 +1,75 @@
+<div class="body">
+  <div class="head">
+    <p>Find the best Companies for you</p>
+  </div>
+  <div class="container">
+    <div class="row">
+
+      <div *ngFor="let company of companies; let i = index" class="col-12 col-sm-10 company">
+        <div class="comp-wrapper">
+          <div class="image">
+            <img alt="logo" [src]="company.logo" height="100" width="100">
+          </div>
+          <div class="comp-info">
+            <div class="comp-industry">
+              <small>{{company.industry}} </small>
+            </div>
+            <div class="comp-name">
+              <h2>{{company.company_name}}</h2>
+            </div>
+            <div>
+              <strong>{{company.title_}}</strong>
+            </div>
+            <div class="comp-address">
+              {{company.headquarters}}
+            </div>
+            <div class="social-icon">
+              <a href={{company.twitterUrl}}><i class="fa fa-linkedin-square"></i></a>
+              <a href={{company.facebookUrl}}><i class="fa fa-facebook-square"></i></a>
+              <a href={{company.linkedinUrl}}><i class="fa fa-twitter-square"></i></a>
+            </div>
+          </div>
+
+        </div>
+        <div class="comp-extra">
+          <div class="type">
+            <div><small>Company Size:</small></div>
+            <div><small>Payment Info: </small></div>
+            <div><small>Specialties:</small></div>
+          </div>
+          <div class="value">
+            <div>{{company.companySize}}</div>
+            <div>{{company.paid_not}}</div>
+            <!-- The | symbol denotes a filter. It format the data that it appears differently to the user-->
+            <div>{{company.specialties.slice(0,4)}}</div>
+          </div>
+        </div>
+        <div class="rating">
+          <strong>{{company.rating}}</strong>
+        </div>
+        <button id="more{{i}}" value={{i}} type="button" class="btn btn-primary" data-toggle="modal" data-target="#moreInfo">
+         Learn More</button>
+
+        <div class="modal fade" id="moreInfo" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="moreInfo">{{companies[i].company_name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
