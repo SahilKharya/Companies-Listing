@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
 
-      <div *ngFor="let company of companies; let i = index" class="col-12 col-sm-10 company">
+      <div *ngFor="let company of companies; let i = index " class="col-12 col-sm-10 company">
         <div class="comp-wrapper">
           <div class="image">
             <img alt="logo" [src]="company.logo" height="100" width="100">
@@ -24,9 +24,9 @@
               {{company.headquarters}}
             </div>
             <div class="social-icon">
-              <a href={{company.twitterUrl}}><i class="fa fa-linkedin-square"></i></a>
+              <a href={{company.linkedinUrl}}><i class="fa fa-linkedin-square"></i></a>
               <a href={{company.facebookUrl}}><i class="fa fa-facebook-square"></i></a>
-              <a href={{company.linkedinUrl}}><i class="fa fa-twitter-square"></i></a>
+              <a href={{company.twitterUrl}}><i class="fa fa-twitter-square"></i></a>
             </div>
           </div>
 
@@ -47,24 +47,49 @@
         <div class="rating">
           <strong>{{company.rating}}</strong>
         </div>
-        <button id="more{{i}}" value={{i}} type="button" class="btn btn-primary" data-toggle="modal" data-target="#moreInfo">
-         Learn More</button>
 
-        <div class="modal fade" id="moreInfo" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="moreInfo">{{companies[i].company_name}}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+        <button type="button" value={{i}} (click)="openModal($event)" id="myBtn{{i}}"> Learn More</button>
+
+        <div id="myModal{{i}}" class="modal">
+          <!-- Modal content-->
+          <div id="modal-content" class="modal-content">
+            <div id="modal-title{{i}}" class="modal-header row">
+              <div class="col-3">
+                <img alt="logo" [src]="company.logo" width="100%">
               </div>
-              <div class="modal-body">
-                ...
+              <div class="col-9 header">
+                <div class="text-center" style="display: block;">
+                  <h2 style="display: block; color: #cb202d;"></h2>
+                  <h5></h5>
+                  <h6 style="color: dimgray;"></h6>
+                </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            <hr>
+            <div id="modal-body{{i}}" class="modal-body row">
+              <div style="width: 100%;">
+                <h3>About:</h3>
+                <p></p>
+              </div>
+              <div style="width: 100%;">
+                <h5>Specialities Includes:</h5>
+                <p></p>
+              </div>
+              <div style="width: 100%;">
+                <h5>Geo Locations:</h5>
+                <p></p>
+              </div>
+              <div style="width: 100%;">
+                <h5>Analysis: </h5>
+                <p></p>
+              </div>
+              <div>
+              </div>
+            </div>
+            <div id="modal-footer{{i}}" class="modal-footer"> 
+              <div class="col-8" style="float: left;">
+              </div>
+              <div class="col-4"> <button type="button" (click)="closeModal()" class="close btn btn-default">Close</button>
               </div>
             </div>
           </div>
