@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { ModalService } from '../modal.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { ModalService } from '../modal.service';
 export class HomeComponent implements OnInit {
   companies: any = [];
 
-  constructor(private httpClient: HttpClient, private modalService: ModalService) { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.httpClient.get("../../assets/data.json").subscribe(data => {
@@ -18,31 +17,6 @@ export class HomeComponent implements OnInit {
       this.companies = data;
     })
   }
-  //   // Get the modal
-  //  modal = document.getElementById("myModal");
-
-  // // Get the button that opens the modal
-  //  btn = document.getElementById("myBtn");
-
-  // // Get the <span> element that closes the modal
-  //  span = document.getElementsByClassName("close")[0];
-
-  // // When the user clicks the button, open the modal 
-  // openModal() {
-  //   this.modal.style.display = "block";
-  // }
-
-  // // When the user clicks on <span> (x), close the modal
-  // closeBtn() {
-  //   this.modal.style.display = "none";
-  // }
-
-  // // When the user clicks anywhere outside of the modal, close it
-  // window.onclick = function (event) {
-  //   if (event.target == this.modal) {
-  //     this.modal.style.display = "none";
-  //   }
-  // }
 
   closeResult: string;
   id: string;
@@ -73,10 +47,6 @@ export class HomeComponent implements OnInit {
     body.children[4].appendChild(img);
     var footer = document.getElementById(footerId);
     footer.children[0].innerHTML = this.companies[this.index].companyAddress;
-
-
-    //document.getElementById(bodyId).innerHTML = this.companies[this.index].company_name;
-
   }
 
   closeModal() {
