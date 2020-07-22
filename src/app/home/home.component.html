@@ -49,6 +49,7 @@
         </div>
 
         <button type="button" value={{i}} (click)="openModal($event)" id="myBtn{{i}}"> Learn More</button>
+        <button type="button" (click)="addToPocket()">Save to Pockets</button>
 
         <div id="myModal{{i}}" class="modal">
           <!-- Modal content-->
@@ -86,10 +87,11 @@
               <div>
               </div>
             </div>
-            <div id="modal-footer{{i}}" class="modal-footer"> 
+            <div id="modal-footer{{i}}" class="modal-footer">
               <div class="col-8" style="float: left;">
               </div>
-              <div class="col-4"> <button type="button" (click)="closeModal()" class="close btn btn-default">Close</button>
+              <div class="col-4"> <button type="button" (click)="closeModal()"
+                  class="close btn btn-default">Close</button>
               </div>
             </div>
           </div>
