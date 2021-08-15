@@ -35,32 +35,19 @@ jobs:
           path: dist
       - name: List Files in Distribution Directory
         run: ls -R ./dist
-      - name: awscodedeploy
-        uses: sourcetoad/aws-codedeploy-action@v1.1.0
+      - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
         with:
-          # AWS Access Key
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          # AWS Secret Key
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          # AWS Region
-          aws_region: us-east-1 # optional, default is us-east-1
-          # S3 Bucket for CodeDeploy Assets
-          s3_bucket: gitdeploy
-          # S3 Folder for ZIP.
-          s3_folder: app
-          # Directory to be archived instead of entire workspace.
-          directory: /dist # optional
-          # Zip to be used for deployment, instead of archiving a directory.
-          archive: # optional
-          # Files to be excluded during archiving (space delimited).
-          excluded_files: # optional
-          # AWS CodeDeploy Application Name
-          codedeploy_name: appdev
-          # AWS CodeDeploy Application Group
-          codedeploy_group: deploygroup_dev
-          # Whether to register the deployment (vs automatic deploy).
-          codedeploy_register_only: # optional, default is false
-          # Max amount of iterations (15s increments) to wait for a deployment
-          max_polling_iterations: # optional, default is 60
-          # Whether to skip all AWS related steps.
-          dry_run: # optional, default is false
+          local: ./dist
+          remote: /cd_test/bb/
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.SERVER_SSH_KEY }}
+      - name: Copy single file to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: ./dist/index.html
+          remote: /cd_test/aa/
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.SERVER_SSH_KEY }}
