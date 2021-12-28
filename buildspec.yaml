@@ -10,7 +10,6 @@ phases:
     commands:
       - echo installing dependencies...
       - npm i -g @angular/cli
-      - npm install
   build:
     commands:
       # - echo testing...
@@ -18,8 +17,8 @@ phases:
       - ng build --prod
   post_build:
     commands:
-      - mv appspec.yml ./dist/my-dream-app
-      - mv scripts ./dist/my-dream-app
+      - mv appspec.yml ./dist/company-info
+      - mv scripts ./dist/company-info
 artifacts:
   files:
     - "**/*"
